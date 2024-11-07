@@ -1,0 +1,187 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
+
+// Fonts
+$primary-font: 'Gelasio', serif; // Elegant serif for headers
+$secondary-font: 'Arimo', sans-serif; // Clean sans-serif for body text
+
+$colors: (
+  "white": #FFFFFF,
+  "nature": #E2DDD1,
+  "green1": #D1E28C,
+  "green2": #A5D39B,
+  "green3": #4FC34E,
+  "green4": #009227,
+  "green5": #056731,
+  "green6": #004002,
+  "black": #000000
+);
+
+/*-- scss:functions --*/
+
+@function theme-color($color) {
+  @return map-get($colors, $color);
+}
+
+/*-- scss:defaults --*/
+
+$body-bg: theme-color("nature");
+$link-color: theme-color("green6");
+$code-color: theme-color("black");
+$body-color: theme-color("black");
+
+/*-- scss:rules --*/
+
+
+.reveal div.sourceCode {
+  border: unset !important;
+}
+
+div.sourceCode {
+  background-color: unset !important;
+}
+
+.center-v {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+@mixin center-text {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+@mixin background-full {
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color;
+  }
+
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+
+.highlight-last-green  {
+  color: theme-color("nature");
+  .current-fragment {
+    color: theme-color("green6");
+  }
+}
+
+.highlight-last-black  {
+  color: theme-color("green4");
+  .current-fragment {
+    color: theme-color("nature");
+  }
+}
+
+
+
+// Add a constraint for regular slide content
+  .slide-content {
+    max-width: 80%;            // Limit width of the text container
+    margin-left: 0;         // Center the container horizontally
+    margin-right: auto;
+    text-align: left;          // Left-align the text inside the container
+  }
+
+
+// Customizing the title slide
+
+
+
+
+// Specific slide backgrounds
+.theme-title1 {
+  &:is(.slide-background) {
+    @include background-full;
+  }
+
+  h2 {
+    color: theme-color("green6");          
+    text-align: left;
+    font-size: 2.5em;
+  }
+  h3 {
+    color: theme-color("green6");
+    text-align: center;
+    font-size: 2em;
+  }
+ 
+
+}
+
+
+.theme-title2 {
+  &:is(.slide-background) {
+    @include background-full;
+  }
+
+  h2 {
+    color: theme-color("green1");          
+    text-align: left;
+    font-size: 2.5em;
+  }
+  h3 {
+    color: theme-color("black");
+    text-align: center;
+    font-size: 2em;
+  }
+  
+  a {
+        color: theme-color("black");        // Link color
+        text-decoration: none; // Optional: remove underline
+    }
+  
+  a:hover {
+        color: theme-color("green2");        // Color when hovering over the link
+        text-decoration: underline; // Optional: add underline on hover
+    }
+}
+
+.theme-logo1 {
+  &:is(.slide-background) {
+    @include background-full;
+  }
+
+  h2 {
+    color: theme-color("green6");          
+    text-align: left;
+    font-size: 2.5em;
+  }
+  h3 {
+    color: theme-color("green6");
+    text-align: center;
+    font-size: 2em;
+  }
+}
+
+.theme-title3 {
+  &:is(.slide-background) {
+    @include background-full;
+  }
+
+  h2 {
+    color: theme-color("green6");          
+    text-align: left;
+    font-size: 2.5em;
+  }
+  h3 {
+    color: theme-color("green6");
+    text-align: center;
+    font-size: 2em;
+  }
+}
+
+
+

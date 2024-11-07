@@ -18,8 +18,14 @@
 # Output files from R CMD check
 /*.Rcheck/
 
+
+*_files/
+*.html
+
 # RStudio files
 .Rproj.user/
+
+*.Rproj
 
 # produced vignettes
 vignettes/*.html
